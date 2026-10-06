@@ -1,0 +1,13 @@
+{
+  "_note": "SAMPLE DATA for the portfolio template. Each site shows in the 3D laptop on /work. Posters and favicons live in public/design-work/<id>.jpg and <id>-icon.png; regenerate them with scripts/capture-design-work.py.",
+  "groups": [
+    { "id": "clients", "label": "Client work", "blurb": "Sites designed and built for clients." },
+    { "id": "personal", "label": "Personal", "blurb": "Experiments and concepts." }
+  ],
+  "sites": [
+    { "id": "example-com", "group": "clients", "title": "Studio site", "url": "https://example.com", "concept": false },
+    { "id": "example-org", "group": "clients", "title": "Nonprofit landing page", "url": "https://example.org", "concept": false },
+    { "id": "example-net", "group": "personal", "title": "Product launch", "url": "https://example.net", "concept": true },
+    { "id": "example-www", "group": "personal", "title": "Portfolio concept", "url": "https://www.example.com", "concept": true }
+  ]
+}

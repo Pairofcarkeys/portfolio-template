@@ -1,0 +1,119 @@
+.page { padding-top: clamp(1.5rem, 3vw, 2.5rem); }
+
+/* ── Cover ─────────────────────────────── */
+.cover { margin-bottom: clamp(3.5rem, 7vw, 6rem); }
+
+.coverMeta {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+.coverMeta > :nth-child(1) { grid-column: 1 / span 3; }
+.coverMeta > :nth-child(2) { grid-column: 4 / span 6; }
+.coverMeta > :nth-child(3) { grid-column: 10 / -1; text-align: right; }
+
+.name {
+  font-size: clamp(3.5rem, 16.9vw, 15.2rem);
+  font-weight: 600;
+  letter-spacing: -0.065em;
+  line-height: 0.84;
+  margin: clamp(1rem, 2.5vw, 2rem) 0 clamp(1.5rem, 3.5vw, 3rem) -0.06em;
+  white-space: nowrap;
+}
+.name span:last-child { color: var(--fg); }
+
+.coverGrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 2.5rem;
+  border-top: 1px solid var(--hairline);
+  padding-top: var(--gutter);
+}
+
+.portrait { grid-column: 1 / span 3; margin: 0; }
+.portrait img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; filter: grayscale(1) contrast(1.05); transition: filter 400ms ease; }
+.portrait:hover img { filter: grayscale(0); }
+.portrait figcaption { margin-top: 0.5rem; color: var(--muted); }
+
+.intro { grid-column: 4 / span 5; display: flex; flex-direction: column; gap: 1.25rem; min-width: 0; }
+.lede {
+  font-size: clamp(1.75rem, 3.3vw, 3.1rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  margin: 0;
+  max-width: 14ch;
+}
+.bio { font-size: 1.05rem; line-height: 1.45; max-width: 36ch; color: var(--muted); margin: 0; }
+.lede a { text-decoration-thickness: 2px; text-decoration-color: var(--accent); text-underline-offset: 0.12em; }
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--rule);
+  margin-top: auto;
+}
+.facts > div { padding: 0.6rem 0.75rem 0 0; border-right: 1px solid var(--hairline); }
+.facts > div + div { padding-left: 0.75rem; }
+.facts > div:last-child { border-right: 0; }
+.facts dt { color: var(--muted); }
+.facts dd { font-size: clamp(1.8rem, 3vw, 2.75rem); font-weight: 500; letter-spacing: -0.04em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+
+.experienceJump {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 1rem;
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 500;
+  text-decoration: none;
+  width: 100%;
+}
+.experienceJump:hover { background: var(--accent); color: #fff; }
+
+.side { grid-column: 9 / -1; display: flex; flex-direction: column; gap: 2rem; min-width: 0; }
+.block { display: flex; flex-direction: column; gap: 0.6rem; min-width: 0; }
+
+/* ── Activity ──────────────────────────── */
+.activity { margin-bottom: clamp(4rem, 9vw, 8rem); }
+.barTitle { font-size: 0.72rem; letter-spacing: 0.02em; line-height: 1.4; font-weight: 400; margin: 0; }
+
+@media (max-width: 1100px) {
+  .portrait { grid-column: 1 / span 4; }
+  .intro { grid-column: 5 / -1; }
+  .side { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gutter); }
+}
+
+@media (max-width: 720px) {
+  .coverMeta { grid-template-columns: 1fr 1fr; }
+  .coverMeta > :nth-child(1) { grid-column: 1; }
+  .coverMeta > :nth-child(2) { display: none; }
+  .coverMeta > :nth-child(3) { grid-column: 2; }
+  .name { font-size: clamp(3rem, 21.5vw, 6rem); white-space: normal; line-height: 0.86; }
+  .name span { display: block; }
+  .coverGrid { grid-template-columns: repeat(6, minmax(0, 1fr)); row-gap: 2rem; }
+  .portrait { grid-column: 1 / span 3; }
+  .intro { grid-column: 4 / -1; gap: 0.75rem; }
+  .lede { font-size: 1.45rem; }
+  .facts { grid-column: 1 / -1; }
+  .side { grid-column: 1 / -1; grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 720px) {
+  /* Facts and jump link go full width under the portrait row. */
+  .intro { display: contents; }
+  .intro > :first-child { grid-column: 4 / -1; grid-row: 1; align-self: start; }
+  .lede { grid-column: 4 / -1; grid-row: 1; align-self: end; }
+  .facts { grid-column: 1 / -1; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .facts dd { font-size: 1.6rem; }
+  .facts > div { padding-right: 0.4rem; }
+  .facts > div + div { padding-left: 0.4rem; }
+  .facts dt { font-size: 0.6rem; }
+  .experienceJump { grid-column: 1 / -1; }
+  .bio { grid-column: 1 / -1; }
+}

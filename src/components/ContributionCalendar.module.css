@@ -1,0 +1,83 @@
+.calendar {
+  --gap: 3px;
+  --cell: min(22px, calc((100cqi - 32px) / var(--weeks) - var(--gap)));
+  container-type: inline-size;
+  min-width: 0; width: 100%; color: var(--fg);
+}
+
+/* Two figures set like a stat table. */
+.counters {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  margin-bottom: 2rem;
+}
+.heading, .views {
+  grid-column: span 6;
+  display: flex; flex-direction: column; gap: 0.35rem; min-width: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.6rem;
+}
+.heading strong, .views output {
+  order: 2;
+  font-size: clamp(3rem, 8.5vw, 8rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+.views output { color: var(--accent); }
+.heading a, .views a, .views > span:first-child {
+  order: 1;
+  font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.02em;
+  text-decoration: none; color: var(--muted);
+  min-height: 24px; display: inline-flex; align-items: center; width: fit-content;
+}
+.heading a:hover, .views a:hover { color: var(--accent-ink); }
+.unavailable { order: 2; font-size: 1.25rem; color: var(--muted); }
+
+.table { width: 100%; }
+.gridScroller { min-width: 0; border-top: 1px solid var(--hairline); padding-top: 0.75rem; }
+.gridScroller:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.swipeHint { display: none; }
+.row, .months { display: grid; grid-template-columns: 32px repeat(var(--weeks), minmax(0, 1fr)); align-items: center; }
+.row { height: calc(var(--cell) + var(--gap)); }
+.months { height: 20px; align-items: start; }
+.month, .weekday { font-family: var(--mono); color: var(--muted); font-size: 9px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+.row:nth-child(even) .weekday { color: transparent; }
+.cell { display: flex; align-items: center; justify-content: center; min-width: 0; }
+.dot, .socialSwatch { display: inline-block; flex: 0 0 auto; width: var(--cell); height: var(--cell); }
+.dot { --blue: #ececec; background: var(--blue); }
+.dot[data-level='1'] { --blue: #c9c9c9; }
+.dot[data-level='2'] { --blue: #8e8e8e; }
+.dot[data-level='3'] { --blue: #4a4a4a; }
+.dot[data-level='4'] { --blue: #0b0b0b; }
+.calendar [data-social-level='1'] { --red: #e2c2c2; }
+.calendar [data-social-level='2'] { --red: #b85a5a; }
+.calendar [data-social-level='3'] { --red: #8a0303; }
+.calendar [data-social-level='4'] { --red: #4f0101; }
+.dot[data-social-level]:not([data-social-level='0']) { background: linear-gradient(135deg, var(--blue) 50%, var(--red) 50%); }
+.dot[data-level='0'][data-social-level]:not([data-social-level='0']) { background: var(--red); }
+.legendItem { display: inline-flex; align-items: center; gap: 4px; }
+.socialSwatch { background: var(--red); }
+.dot[data-date] { position: relative; cursor: crosshair; }
+.dot[data-date]:hover, .dot:focus-visible { outline: 1.5px solid var(--accent); outline-offset: 1px; z-index: 2; }
+.tooltip { position: fixed; left: var(--edge); bottom: 16px; width: max-content; max-width: calc(100vw - 32px); padding: 6px 9px; background: var(--fg); color: var(--bg); font-family: var(--mono); font-size: 0.7rem; line-height: 1.4; visibility: hidden; pointer-events: none; z-index: 60; }
+.dot:hover .tooltip, .dot:focus-visible .tooltip { visibility: visible; }
+.legends { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem 2rem; margin-top: 0.9rem; padding-top: 0.6rem; border-top: 1px solid var(--hairline); }
+.legend { display: flex; align-items: center; gap: 4px; white-space: nowrap; font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; color: var(--muted); }
+.legend > span:first-child { color: var(--fg); margin-right: 0.4rem; }
+.legend .dot, .legend .socialSwatch { --cell: 10px; }
+
+@media (max-width: 720px) {
+  .counters { grid-template-columns: 1fr; row-gap: 1.5rem; }
+  .heading, .views { grid-column: 1; }
+  .heading strong, .views output { font-size: clamp(3rem, 17vw, 5rem); }
+  .heading a, .views a { min-height: 44px; }
+  .calendar { --cell: 10px; }
+  .gridScroller { overflow-x: auto; overscroll-behavior-x: contain; padding-bottom: 6px; scrollbar-width: thin; }
+  .table { min-width: 640px; }
+  .swipeHint { display: block; margin: 0.5rem 0 0; font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; color: var(--muted); }
+  .legends { justify-content: flex-start; }
+  .tooltip { font-size: 0.8rem; }
+}

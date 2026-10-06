@@ -1,0 +1,15 @@
+{
+  "_note": "SAMPLE DATA for the portfolio template. Fictional tracks with placeholder covers and no audio previews. Replace by hand or with scripts/sync-playlists.py.",
+  "syncedAt": "2026-01-01",
+  "playlists": [
+    { "id": "sample-playlist-a", "name": "Sample playlist A", "url": "https://example.com/playlist-a" },
+    { "id": "sample-playlist-b", "name": "Sample playlist B", "url": "https://example.com/playlist-b" }
+  ],
+  "tracks": [
+    { "id": "track-1", "title": "Sample Track", "artist": "Example Artist", "playlists": ["sample-playlist-a"], "url": "https://example.com/track-1", "preview": null, "durationMs": 184000, "artwork": "/music/cover-1.svg" },
+    { "id": "track-2", "title": "Placeholder Song", "artist": "The Stand-ins", "playlists": ["sample-playlist-a"], "url": "https://example.com/track-2", "preview": null, "durationMs": 201000, "artwork": "/music/cover-2.svg" },
+    { "id": "track-3", "title": "Lorem Ipsum", "artist": "Dolor Sit", "playlists": ["sample-playlist-a", "sample-playlist-b"], "url": "https://example.com/track-3", "preview": null, "durationMs": 167000, "artwork": "/music/cover-3.svg" },
+    { "id": "track-4", "title": "Untitled Demo", "artist": "Fictional Band", "playlists": ["sample-playlist-b"], "url": "https://example.com/track-4", "preview": null, "durationMs": 222000, "artwork": "/music/cover-4.svg" },
+    { "id": "track-5", "title": "Example Interlude", "artist": "Example Artist", "playlists": ["sample-playlist-b"], "url": "https://example.com/track-5", "preview": null, "durationMs": 98000, "artwork": "/music/cover-5.svg" }
+  ]
+}

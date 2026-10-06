@@ -1,0 +1,61 @@
+name: Refresh site data
+
+# Every push to main (and once a day) refreshes the playlists and GitHub
+# contributions, then commits any changes. Configure the repository
+# variables GITHUB_USERNAME and SPOTIFY_PLAYLIST_IDS (both optional; a
+# source without its variable is skipped). GITHUB_TOKEN pushes never
+# retrigger this workflow.
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: data-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: pnpm/action-setup@v4
+      - run: pnpm install --frozen-lockfile
+      - name: Refresh playlists and contributions
+        run: pnpm refresh
+        env:
+          GITHUB_USERNAME: ${{ vars.GITHUB_USERNAME }}
+          SPOTIFY_PLAYLIST_IDS: ${{ vars.SPOTIFY_PLAYLIST_IDS }}
+          GITHUB_CONTRIBUTIONS_TOKEN: ${{ secrets.CONTRIBUTIONS_TOKEN || github.token }}
+      - name: Commit refreshed data
+        id: commit
+        run: |
+          git add src/data/playlists.json src/data/github-contributions.json
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore: refresh site data'
+          git push origin HEAD:main
+          printf 'updated=true\n' >> "$GITHUB_OUTPUT"
+      # GITHUB_TOKEN commits do not trigger push workflows; run CI on the refreshed commit explicitly.
+      - name: Validate the refreshed site
+        if: steps.commit.outputs.updated == 'true'
+        run: gh workflow run deploy.yml --ref main
+        env:
+          GH_TOKEN: ${{ github.token }}

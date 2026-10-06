@@ -1,0 +1,4 @@
+# Cloudflare Pages project name — change to your own.
+name = "your-portfolio"
+pages_build_output_dir = "./out"
+compatibility_date = "2026-03-19"

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 420" width="300" height="420">
+  <title>Placeholder mark</title>
+  <rect x="0" y="0" width="300" height="420" fill="#f3f3f3"/>
+  <circle cx="150" cy="150" r="96" fill="none" stroke="#0b0b0b" stroke-width="2"/>
+  <circle cx="196" cy="118" r="30" fill="#8a0303"/>
+  <path d="M30 320 H270 M30 344 H210 M30 368 H240" stroke="#0b0b0b" stroke-width="2"/>
+  <text x="30" y="400" font-family="ui-monospace, Menlo, monospace" font-size="11" letter-spacing="1" fill="#6b6b6b">REPLACE /random-mark.svg</text>
+</svg>

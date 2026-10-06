@@ -1,0 +1,344 @@
+{
+  "_note": "SAMPLE DATA for the portfolio template. Drives the views counter and the red social squares in the activity calendar. Replace with your own snapshot (same shape).",
+  "schemaVersion": 1,
+  "fetchedAt": "2026-10-06T12:00:00Z",
+  "complete": true,
+  "accounts": [
+    {
+      "platform": "instagram",
+      "handle": "yourhandle",
+      "status": "complete",
+      "posts": [
+        {
+          "id": "sample-instagram-1",
+          "postedAt": "2026-09-30T12:00:00Z",
+          "views": 38021
+        },
+        {
+          "id": "sample-instagram-2",
+          "postedAt": "2026-05-14T12:00:00Z",
+          "views": 31162
+        },
+        {
+          "id": "sample-instagram-3",
+          "postedAt": "2026-02-03T12:00:00Z",
+          "views": 29266
+        },
+        {
+          "id": "sample-instagram-4",
+          "postedAt": "2026-04-15T12:00:00Z",
+          "views": 12482
+        },
+        {
+          "id": "sample-instagram-5",
+          "postedAt": "2026-09-10T12:00:00Z",
+          "views": 16946
+        },
+        {
+          "id": "sample-instagram-6",
+          "postedAt": "2026-02-04T12:00:00Z",
+          "views": 7876
+        },
+        {
+          "id": "sample-instagram-7",
+          "postedAt": "2026-09-03T12:00:00Z",
+          "views": 26660
+        },
+        {
+          "id": "sample-instagram-8",
+          "postedAt": "2026-01-28T12:00:00Z",
+          "views": 5255
+        },
+        {
+          "id": "sample-instagram-9",
+          "postedAt": "2025-12-15T12:00:00Z",
+          "views": 41651
+        },
+        {
+          "id": "sample-instagram-10",
+          "postedAt": "2025-10-20T12:00:00Z",
+          "views": 3913
+        },
+        {
+          "id": "sample-instagram-11",
+          "postedAt": "2026-07-21T12:00:00Z",
+          "views": 10177
+        },
+        {
+          "id": "sample-instagram-12",
+          "postedAt": "2025-12-22T12:00:00Z",
+          "views": 20312
+        },
+        {
+          "id": "sample-instagram-13",
+          "postedAt": "2026-08-24T12:00:00Z",
+          "views": 16665
+        },
+        {
+          "id": "sample-instagram-14",
+          "postedAt": "2026-08-07T12:00:00Z",
+          "views": 36973
+        },
+        {
+          "id": "sample-instagram-15",
+          "postedAt": "2026-03-07T12:00:00Z",
+          "views": 40135
+        },
+        {
+          "id": "sample-instagram-16",
+          "postedAt": "2025-12-05T12:00:00Z",
+          "views": 52221
+        },
+        {
+          "id": "sample-instagram-17",
+          "postedAt": "2025-11-24T12:00:00Z",
+          "views": 15190
+        },
+        {
+          "id": "sample-instagram-18",
+          "postedAt": "2026-01-12T12:00:00Z",
+          "views": 25328
+        }
+      ]
+    },
+    {
+      "platform": "tiktok",
+      "handle": "yourhandle",
+      "status": "complete",
+      "posts": [
+        {
+          "id": "sample-tiktok-1",
+          "postedAt": "2026-02-18T12:00:00Z",
+          "views": 59939
+        },
+        {
+          "id": "sample-tiktok-2",
+          "postedAt": "2026-02-22T12:00:00Z",
+          "views": 19887
+        },
+        {
+          "id": "sample-tiktok-3",
+          "postedAt": "2025-12-09T12:00:00Z",
+          "views": 28503
+        },
+        {
+          "id": "sample-tiktok-4",
+          "postedAt": "2026-05-03T12:00:00Z",
+          "views": 37665
+        },
+        {
+          "id": "sample-tiktok-5",
+          "postedAt": "2025-11-23T12:00:00Z",
+          "views": 4347
+        },
+        {
+          "id": "sample-tiktok-6",
+          "postedAt": "2025-11-28T12:00:00Z",
+          "views": 48902
+        },
+        {
+          "id": "sample-tiktok-7",
+          "postedAt": "2026-08-17T12:00:00Z",
+          "views": 50386
+        },
+        {
+          "id": "sample-tiktok-8",
+          "postedAt": "2026-06-22T12:00:00Z",
+          "views": 41393
+        },
+        {
+          "id": "sample-tiktok-9",
+          "postedAt": "2026-06-20T12:00:00Z",
+          "views": 17743
+        },
+        {
+          "id": "sample-tiktok-10",
+          "postedAt": "2025-11-02T12:00:00Z",
+          "views": 5720
+        },
+        {
+          "id": "sample-tiktok-11",
+          "postedAt": "2026-07-18T12:00:00Z",
+          "views": 16119
+        },
+        {
+          "id": "sample-tiktok-12",
+          "postedAt": "2026-07-10T12:00:00Z",
+          "views": 36575
+        },
+        {
+          "id": "sample-tiktok-13",
+          "postedAt": "2026-08-29T12:00:00Z",
+          "views": 10658
+        },
+        {
+          "id": "sample-tiktok-14",
+          "postedAt": "2026-10-05T12:00:00Z",
+          "views": 27172
+        },
+        {
+          "id": "sample-tiktok-15",
+          "postedAt": "2026-02-18T12:00:00Z",
+          "views": 45578
+        },
+        {
+          "id": "sample-tiktok-16",
+          "postedAt": "2025-12-06T12:00:00Z",
+          "views": 31196
+        },
+        {
+          "id": "sample-tiktok-17",
+          "postedAt": "2026-05-10T12:00:00Z",
+          "views": 2539
+        },
+        {
+          "id": "sample-tiktok-18",
+          "postedAt": "2026-06-10T12:00:00Z",
+          "views": 19281
+        }
+      ]
+    }
+  ],
+  "dailyPosts": [
+    {
+      "date": "2025-10-20",
+      "count": 1
+    },
+    {
+      "date": "2025-11-02",
+      "count": 1
+    },
+    {
+      "date": "2025-11-23",
+      "count": 1
+    },
+    {
+      "date": "2025-11-24",
+      "count": 1
+    },
+    {
+      "date": "2025-11-28",
+      "count": 1
+    },
+    {
+      "date": "2025-12-05",
+      "count": 1
+    },
+    {
+      "date": "2025-12-06",
+      "count": 1
+    },
+    {
+      "date": "2025-12-09",
+      "count": 1
+    },
+    {
+      "date": "2025-12-15",
+      "count": 1
+    },
+    {
+      "date": "2025-12-22",
+      "count": 1
+    },
+    {
+      "date": "2026-01-12",
+      "count": 1
+    },
+    {
+      "date": "2026-01-28",
+      "count": 1
+    },
+    {
+      "date": "2026-02-03",
+      "count": 1
+    },
+    {
+      "date": "2026-02-04",
+      "count": 1
+    },
+    {
+      "date": "2026-02-18",
+      "count": 2
+    },
+    {
+      "date": "2026-02-22",
+      "count": 1
+    },
+    {
+      "date": "2026-03-07",
+      "count": 1
+    },
+    {
+      "date": "2026-04-15",
+      "count": 1
+    },
+    {
+      "date": "2026-05-03",
+      "count": 1
+    },
+    {
+      "date": "2026-05-10",
+      "count": 1
+    },
+    {
+      "date": "2026-05-14",
+      "count": 1
+    },
+    {
+      "date": "2026-06-10",
+      "count": 1
+    },
+    {
+      "date": "2026-06-20",
+      "count": 1
+    },
+    {
+      "date": "2026-06-22",
+      "count": 1
+    },
+    {
+      "date": "2026-07-10",
+      "count": 1
+    },
+    {
+      "date": "2026-07-18",
+      "count": 1
+    },
+    {
+      "date": "2026-07-21",
+      "count": 1
+    },
+    {
+      "date": "2026-08-07",
+      "count": 1
+    },
+    {
+      "date": "2026-08-17",
+      "count": 1
+    },
+    {
+      "date": "2026-08-24",
+      "count": 1
+    },
+    {
+      "date": "2026-08-29",
+      "count": 1
+    },
+    {
+      "date": "2026-09-03",
+      "count": 1
+    },
+    {
+      "date": "2026-09-10",
+      "count": 1
+    },
+    {
+      "date": "2026-09-30",
+      "count": 1
+    },
+    {
+      "date": "2026-10-05",
+      "count": 1
+    }
+  ]
+}

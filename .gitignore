@@ -1,0 +1,23 @@
+# Dependencies and generated build output
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+.wrangler/
+
+# Local credentials and editor state
+.env
+.env.*
+!.env.example
+.DS_Store
+.vscode/
+
+# Local verification output and raw collection responses
+reports/
+scripts/social-stats-batches/
+__pycache__/
+*.py[cod]
+
+# Local screenshots
+.screens/

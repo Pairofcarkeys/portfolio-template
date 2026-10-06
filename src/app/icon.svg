@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Portfolio monogram placeholder</title>
+  <rect width="64" height="64" fill="#0b0b0b"/>
+  <text x="29" y="46" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="40" fill="#ffffff">Y</text>
+  <circle cx="49" cy="44" r="5" fill="#8a0303"/>
+</svg>

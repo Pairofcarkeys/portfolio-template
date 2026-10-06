@@ -1,0 +1,68 @@
+{
+  "_note": "SAMPLE DATA for the portfolio template. One card per contact icon on the homepage; hover an icon to see its preview. Replace every value with your own.",
+  "schemaVersion": 1,
+  "observedAt": "2026-01-01T12:00:00Z",
+  "cards": [
+    {
+      "platform": "linkedin",
+      "label": "LinkedIn",
+      "profileUrl": "https://www.linkedin.com/in/your-handle",
+      "status": "post",
+      "name": "Your Name",
+      "handle": "Co-founder at Your Company",
+      "postUrl": "https://example.com/linkedin-post",
+      "date": "Jan 1, 2026",
+      "text": "A sample post about something you shipped. Replace this text, the image and the counts with a real post you want visitors to see.",
+      "avatar": "/social-previews/avatar.svg",
+      "image": "/social-previews/post-landscape.svg",
+      "imageAlt": "Placeholder post image",
+      "metrics": [{ "label": "reactions", "value": 128 }, { "label": "comments", "value": 24 }]
+    },
+    {
+      "platform": "x",
+      "label": "X",
+      "profileUrl": "https://x.com/yourhandle",
+      "status": "post",
+      "name": "Your Name",
+      "handle": "@yourhandle",
+      "postUrl": "https://example.com/x-post",
+      "date": "Jan 2, 2026",
+      "text": "A short sample post. Pick something that shows how you think.",
+      "avatar": "/social-previews/avatar.svg",
+      "image": "/social-previews/post-landscape.svg",
+      "imageAlt": "Placeholder video thumbnail",
+      "metrics": [{ "label": "replies", "value": 6 }, { "label": "reposts", "value": 4 }, { "label": "likes", "value": 52 }, { "label": "views", "value": 2400 }]
+    },
+    {
+      "platform": "instagram",
+      "label": "Instagram",
+      "profileUrl": "https://www.instagram.com/yourhandle/",
+      "status": "post",
+      "name": "yourhandle",
+      "handle": "Your Name",
+      "postUrl": "https://example.com/instagram-post",
+      "date": "Jan 3, 2026",
+      "text": "A sample caption for an Instagram post.",
+      "avatar": "/social-previews/avatar.svg",
+      "image": "/social-previews/post-square.svg",
+      "imageAlt": "Placeholder post image",
+      "mediaType": "video",
+      "metrics": [{ "label": "views", "value": 12800 }, { "label": "likes", "value": 940 }, { "label": "comments", "value": 37 }]
+    },
+    {
+      "platform": "tiktok",
+      "label": "TikTok",
+      "profileUrl": "https://www.tiktok.com/@yourhandle",
+      "status": "post",
+      "name": "yourhandle",
+      "handle": "@yourhandle",
+      "postUrl": "https://example.com/tiktok-post",
+      "date": null,
+      "text": "A sample short video caption.",
+      "image": "/social-previews/post-portrait.svg",
+      "imageAlt": "Placeholder video thumbnail",
+      "mediaType": "video",
+      "metrics": [{ "label": "views", "value": 48000 }, { "label": "likes", "value": 3100 }, { "label": "comments", "value": 85 }, { "label": "saves", "value": 210 }]
+    }
+  ]
+}

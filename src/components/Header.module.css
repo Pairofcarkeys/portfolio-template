@@ -1,0 +1,112 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--edge);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: center;
+  min-height: 64px;
+}
+
+.brand {
+  grid-column: 1 / span 3;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: fit-content;
+}
+.brand::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  flex: 0 0 auto;
+}
+.brand:hover { color: var(--fg); }
+
+.role {
+  grid-column: 4 / span 3;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nav {
+  grid-column: 7 / -1;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  min-height: 44px;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  position: relative;
+}
+.num {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 400;
+  color: var(--faint);
+  transform: translateY(-0.35em);
+}
+.nav a:hover .num { color: var(--accent-ink); }
+
+.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 2px;
+  background: var(--accent);
+}
+.active .num { color: var(--accent-ink); }
+
+@media (max-width: 1000px) {
+  .brand { grid-column: 1 / span 4; }
+  .role { display: none; }
+  .nav { grid-column: 5 / -1; justify-content: flex-end; gap: 1.25rem; }
+}
+
+@media (max-width: 720px) {
+  .inner { grid-template-columns: 1fr; min-height: 0; padding-top: 0.6rem; }
+  .brand { grid-column: 1; min-height: 32px; }
+  .nav {
+    grid-column: 1;
+    justify-content: space-between;
+    gap: 0.75rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { font-size: 0.88rem; white-space: nowrap; }
+  .num { display: none; }
+  .active::after { bottom: 6px; }
+}

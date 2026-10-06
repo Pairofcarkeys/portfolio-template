@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" width="240" height="64">
+  <title>Your Company — placeholder logo</title>
+  <rect x="2" y="12" width="40" height="40" fill="#0b0b0b"/>
+  <circle cx="32" cy="42" r="6" fill="#8a0303"/>
+  <text x="54" y="42" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="24" letter-spacing="-1" fill="#0b0b0b">Your Company</text>
+</svg>

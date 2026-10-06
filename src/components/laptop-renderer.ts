@@ -7,7 +7,7 @@ import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment
 export type Quad = [number, number][];
 export type LaptopFrame = { quad: Quad; power: number; done: boolean };
 
-type Options = {
+export type DeviceRendererOptions = {
   host: HTMLDivElement;
   canvas: HTMLCanvasElement;
   /** False skips straight to the open, front-on pose (reduced motion). */
@@ -29,7 +29,7 @@ const ramp = (t: number, start: number, end: number) => clamp01((t - start) / (e
 const easeInOut = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
 const easeOut = (t: number) => 1 - (1 - t) ** 3;
 
-export function createLaptopRenderer({ host, canvas, animate, frame, ready, failed }: Options) {
+export function createLaptopRenderer({ host, canvas, animate, frame, ready, failed }: DeviceRendererOptions) {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;

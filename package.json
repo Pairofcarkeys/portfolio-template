@@ -13,6 +13,8 @@
     "sync:contributions": "node scripts/sync-contributions.mjs",
     "sync:playlists": "python3 scripts/sync-playlists.py",
     "capture:work": "python3 scripts/capture-design-work.py",
+    "capture:work:phone": "python3 scripts/capture-design-work.py --phone",
+    "design:figma": "node design/build-figma.mjs",
     "refresh": "node scripts/refresh-data.mjs",
     "check": "pnpm build && pnpm typecheck && pnpm test"
   },

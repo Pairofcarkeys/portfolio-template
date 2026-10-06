@@ -1,4 +1,5 @@
 import data from './design-work.json';
+import phoneTints from './design-work-phone.json';
 
 export type DesignGroup = { id: string; label: string; blurb: string };
 export type DesignSite = {
@@ -19,3 +20,9 @@ export const posterFor = (site: DesignSite) => `/design-work/${site.id}.jpg`;
 export const iconFor = (site: DesignSite) => `/design-work/${site.id}-icon.png`;
 export const hostOf = (site: DesignSite) => new URL(site.url).host;
 export const groupOf = (site: DesignSite) => designGroups.find(group => group.id === site.group)!;
+
+/** 430-point-wide mobile frame from `capture-design-work.py --phone`. */
+export const phonePosterFor = (site: DesignSite) => `/design-work/${site.id}-phone.jpg`;
+/** The page's top and bottom edge colours, which iOS Safari bleeds into its chrome. */
+export const phoneTintOf = (site: DesignSite): { top: string; bottom: string } =>
+  (phoneTints as Record<string, { top: string; bottom: string }>)[site.id] ?? { top: '#ffffff', bottom: '#ffffff' };

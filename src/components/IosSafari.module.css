@@ -1,0 +1,101 @@
+/* Another device's UI: real iOS type and casing, not the portfolio's. */
+.phone,
+.phone *,
+.phone *::before,
+.phone *::after {
+  text-transform: none !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.phone {
+  position: relative;
+  overflow: hidden;
+  /* The iPhone 15 Pro Max display's corner radius, in points. */
+  border-radius: 55px;
+  color: #000;
+  font-size: 15px;
+  line-height: 1.2;
+}
+.phone button { border: 0; background: none; color: inherit; cursor: pointer; padding: 0; }
+.phone a { text-decoration: none; color: inherit; border: 0; }
+
+.status {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 34px 0 52px;
+  color: #000;
+}
+.phone[data-dark-top='true'] .status { color: #fff; }
+.time { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
+.glyphs { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; }
+
+.island {
+  position: absolute;
+  z-index: 3;
+  top: 11px;
+  left: 50%;
+  width: 126px;
+  height: 37px;
+  margin-left: -63px;
+  border-radius: 19px;
+  background: #000;
+}
+
+.viewport { position: absolute; left: 0; right: 0; bottom: 0; overflow: hidden; }
+.poster, .frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.poster { object-fit: cover; object-position: top; transition: opacity 300ms ease; animation: arrive 450ms ease both; }
+@keyframes arrive { from { opacity: 0; transform: translateY(14px); } }
+@media (prefers-reduced-motion: reduce) { .poster { animation: none; } }
+.poster[data-hidden='true'] { opacity: 0; }
+.frame { opacity: 0; transition: opacity 300ms ease; background: #fff; }
+.frame[data-ready='true'] { opacity: 1; }
+
+/* Liquid-glass capsules floating above the home indicator. */
+.bar {
+  position: absolute;
+  z-index: 2;
+  left: 14px;
+  right: 14px;
+  bottom: 30px;
+  display: flex;
+  gap: 8px;
+  height: 50px;
+}
+.round, .address {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border-radius: 25px;
+  background: rgba(250, 250, 250, 0.74);
+  backdrop-filter: blur(18px) saturate(1.8);
+  -webkit-backdrop-filter: blur(18px) saturate(1.8);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.14), inset 0 0 0 0.5px rgba(255, 255, 255, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+.round { flex: 0 0 50px; font-size: 22px; }
+.address { position: relative; flex: 1; gap: 7px; min-width: 0; overflow: hidden; font-size: 16px; }
+.favicon { width: 16px; height: 16px; border-radius: 4px; }
+.host { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.progress { position: absolute; left: 22px; right: 22px; bottom: 0; height: 2.5px; border-radius: 2px; background: #8a0303; transform-origin: left; transform: scaleX(0); opacity: 0; }
+.progress[data-loading='true'] { opacity: 1; animation: load 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+@keyframes load { from { transform: scaleX(0.05); } to { transform: scaleX(0.85); } }
+
+.home {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 8px;
+  width: 144px;
+  height: 5px;
+  margin-left: -72px;
+  border-radius: 3px;
+  background: #000;
+}
+.phone[data-dark-bottom='true'] .home { background: #fff; }

@@ -1,0 +1,18 @@
+{
+  "example-com": {
+    "top": "#eeeeee",
+    "bottom": "#eeeeee"
+  },
+  "example-net": {
+    "top": "#eeeeee",
+    "bottom": "#eeeeee"
+  },
+  "example-org": {
+    "top": "#eeeeee",
+    "bottom": "#eeeeee"
+  },
+  "example-www": {
+    "top": "#eeeeee",
+    "bottom": "#eeeeee"
+  }
+}

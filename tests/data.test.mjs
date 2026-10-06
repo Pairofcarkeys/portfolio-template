@@ -94,6 +94,28 @@ test('the rigged laptop model ships with its required attribution', () => {
   assert.match(page, /William Laverty/);
 });
 
+test('design work: every site has a phone capture and edge tints for iOS Safari', () => {
+  const data = json('src/data/design-work.json');
+  const tints = json('src/data/design-work-phone.json');
+  for (const site of data.sites) {
+    const poster = asset(`/design-work/${site.id}-phone.jpg`);
+    assert.equal(readFileSync(poster).subarray(0, 3).toString('hex'), 'ffd8ff', `${site.id}: phone poster is not a JPEG (run capture-design-work.py --phone)`);
+    assert.match(tints[site.id]?.top ?? '', /^#[0-9a-f]{6}$/, `${site.id}: no top tint`);
+    assert.match(tints[site.id]?.bottom ?? '', /^#[0-9a-f]{6}$/, `${site.id}: no bottom tint`);
+  }
+});
+
+test('the phone model ships with its required attribution', () => {
+  const model = readFileSync(asset('/models/iphone-15-pro-max.glb'));
+  assert.equal(model.toString('ascii', 0, 4), 'glTF');
+  const chunk = JSON.parse(model.subarray(20, 20 + model.readUInt32LE(12)).toString());
+  assert.match(chunk.asset.extras.license, /CC-BY-4\.0/);
+  // The renderer finds the display by this material.
+  assert.ok(chunk.materials.some(material => material.name === 'pIJKfZsazmcpEiU'));
+  const page = readFileSync(new URL('../src/app/work/page.tsx', import.meta.url), 'utf8');
+  assert.match(page, /polyman/);
+});
+
 test('playlists: unique tracks, known playlists, artwork present, previews optional', () => {
   const data = json('src/data/playlists.json');
   assert.ok(data.playlists.length >= 1);

@@ -10,11 +10,12 @@ Everything personal in this repository is a placeholder — "Your Name", `you@ex
 - **Activity calendar** — a GitHub contribution heatmap (newest weeks first) overlaid with social-posting days, plus a cumulative views counter.
 - **Timeline index** — a sortable, filterable, searchable table of every entry across four categories (Experience, Projects, Education, Activities), with an optional descriptions toggle.
 - **Detail pages** — `/timeline/<id>` for every entry: meta grid, "What I did / What I learned / Skills", external links, image gallery, optional logo, video and long-form project notebook. Newer/older pager.
-- **`/work`** — a 3D MacBook (three.js) that opens onto a macOS desktop with Safari showing your sites. Shuffles through screenshots, loads the live site on hover/click, and falls back to a flat render without WebGL.
+- **`/work`** — a 3D MacBook (three.js) that opens onto a macOS desktop with Safari showing your sites, or, on phones, a 3D iPhone running iOS Safari with each site's mobile layout. A quiet Laptop / Phone switch lets anyone see both. Shuffles through screenshots, loads the live site on hover/click, and falls back to a flat render without WebGL.
 - **`/achievements`** — a big-number stat grid.
 - **`/about`** — long-form biography with a sticky contents rail that tracks the section you are reading.
 - **`/random`** — drafts and miscellany, with a shuffling playlist player (handles tracks without audio previews).
 - **SEO** — canonical URLs, Open Graph/Twitter cards, JSON-LD (`Person`, `WebSite`, `ProfilePage`, breadcrumbs), sitemap and robots, all from one site URL.
+- **Design files** — a Figma plugin that rebuilds the site as an editable Figma file (colour variables, text styles, components, desktop and phone pages), design tokens, and transparent laptop and phone renders. See [`design/README.md`](design/README.md) for Figma, Framer and Webflow.
 - **Guard-rail tests** — palette and font checks, data-shape checks, component rendering, and an export check that every page's canonical URL and the sitemap agree.
 
 ## Quick start
@@ -37,6 +38,7 @@ pnpm check        # build + typecheck + tests
 | `pnpm sync:contributions` | Refresh the GitHub calendar (needs `GITHUB_USERNAME`, plus `gh` login or `GITHUB_CONTRIBUTIONS_TOKEN`) |
 | `pnpm sync:playlists` | Refresh playlists from public Spotify playlists (needs `SPOTIFY_PLAYLIST_IDS`) |
 | `pnpm capture:work` | Screenshot every `/work` site into `public/design-work/` (needs Python Playwright) |
+| `pnpm capture:work:phone` | The same at iPhone size, for the phone view, plus each page's edge colours for the iOS status bar |
 | `pnpm refresh` | Run every configured sync, keeping the old snapshot if one fails |
 
 ## Make it yours
@@ -54,7 +56,7 @@ Start with the first two files; the rest are content.
 | `src/app/about/page.tsx` + `src/components/AboutContents.tsx` | Biography prose and its section list. |
 | `src/app/achievements/page.tsx` | Achievement figures and headings. |
 | `src/app/random/page.tsx` | The drafts list. |
-| `src/data/design-work.json` | Sites shown in the `/work` laptop. Then run `pnpm capture:work` to replace the placeholder posters and favicons in `public/design-work/`. |
+| `src/data/design-work.json` | Sites shown in the `/work` laptop. Then run `pnpm capture:work` and `pnpm capture:work:phone` to replace the placeholder posters, phone posters and favicons in `public/design-work/`. |
 | `src/data/social-previews.json` | Contact icons and the post preview shown for each. |
 | `src/data/listening.ts`, `src/data/playlists.json` | The homepage listening card and the `/random` playlist. A track's `preview` may be `null`. |
 | `src/data/github-contributions.json` | Calendar snapshot — run `pnpm sync:contributions`. |
@@ -88,17 +90,19 @@ pnpm deploy
 ```text
 src/
   app/          Routes, page layouts, styles, metadata, sitemap and robots
-  components/   Header, footer, timeline, calendar, players, the /work laptop
+  components/   Header, footer, timeline, calendar, players, the /work laptop and phone
   data/         Profile, content and sample data snapshots
   lib/          SEO helpers, shuffle deck, social summary
-public/         Fonts, the MacBook model and placeholder images
+public/         Fonts, the MacBook and iPhone models and placeholder images
 scripts/        Data sync, screenshot capture and export verification
+design/         Figma plugin, design tokens and device renders (no code needed)
 tests/          Node test suite (node --test)
 ```
 
 ## Credits and licences
 
 - Code: [MIT](LICENSE).
-- Laptop model: [MacBook Pro M3 16-inch 2024](https://sketchfab.com/3d-models/macbook-pro-m3-16-inch-2024-8e34fc2b303144f78490007d91ff57c4) by **jackbaeten**, licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); rigged by **William Laverty** ([rigged-macbook-3d](https://github.com/william-laverty/rigged-macbook-3d)). The credit line on `/work` is required by the licence — keep it. Not affiliated with Apple.
+- Laptop model: [MacBook Pro M3 16-inch 2024](https://sketchfab.com/3d-models/macbook-pro-m3-16-inch-2024-8e34fc2b303144f78490007d91ff57c4) by **jackbaeten**, licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); rigged by **William Laverty** ([rigged-macbook-3d](https://github.com/william-laverty/rigged-macbook-3d)). The credit line on `/work` is required by the licence — keep it.
+- Phone model: [Apple iPhone 15 Pro Max Black](https://sketchfab.com/3d-models/apple-iphone-15-pro-max-black-df17520841214c1792fb8a44c6783ee7) by **polyman**, licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), re-encoded with meshopt. Its credit on `/work` is required too. Neither model is affiliated with Apple.
 - Fonts: [Inter Tight](https://github.com/rsms/inter) and [IBM Plex Mono](https://github.com/IBM/plex), both under the SIL Open Font License 1.1.
 - Icons: [react-icons](https://github.com/react-icons/react-icons) (MIT, with each icon set under its own licence).
